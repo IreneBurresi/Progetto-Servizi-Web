@@ -1,7 +1,11 @@
   
 # Progetto finale esame SSW
 
-  
+## Deploy
+[Link al deploy](https://progetto-servizi-web.firebaseapp.com/?44707)
+
+## Chiave utilizzata
+Chiave utilizzata per lo spettacolo: e800b1f1
 
 ## Specifiche
 
