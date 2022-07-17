@@ -1,0 +1,43 @@
+<h2>Area utenti</h2>
+
+<fieldset>
+  <legend>Selezione dello spettacolo</legend>
+  <app-get-show-id
+    (newShow)="setShow($event)"
+    (newShowId)="setShowId($event)"
+  ></app-get-show-id>
+</fieldset>
+<br />
+<section *ngIf="getShowBookings() != undefined">
+  <fieldset>
+    <legend>Impostazione nominativo</legend>
+    <app-get-booker-name
+      [booker_name]="getBookerName()"
+      (newBookerName)="setBookerName($event)"
+    >
+    </app-get-booker-name>
+  </fieldset>
+</section>
+<br />
+
+<section *ngIf="getShowBookings() != undefined">
+  <fieldset>
+    <legend>Prenotazione veloce</legend>
+    Seleziona il posto da prenotare:
+    <br />
+    <app-display-show-bookings
+      [show_bookings]="getShowBookings()"
+      (newSelectedSeat)="setSelectedSeat($event)"
+    >
+    </app-display-show-bookings>
+    <br />
+    <section
+      *ngIf="getSelectedSeat() != undefined && getBookerName() != undefined"
+    >
+      Vuoi prenotare il posto {{ printSelectedSeat() }} a nome
+      {{ getBookerName() }}?
+      <button type="button" (click)="bookSeat()">Prenota</button>
+    </section>
+    <section id="output"></section>
+  </fieldset>
+</section>

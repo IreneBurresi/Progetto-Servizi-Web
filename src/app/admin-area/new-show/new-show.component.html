@@ -1,0 +1,64 @@
+
+
+  Dimensioni della platea:     
+  <input
+    #parterre_rows
+    type="number"
+    step = "1"
+    name=""
+    min="1"
+    max="16"
+    value = "7"
+    style="width: 5em"
+    id="parterre_rows"
+    placeholder="Numero di file platea..."
+  />
+  file di
+  <input
+    #parterre_seats
+    type="number"
+    name=""
+    min="1"
+    max="16"
+    value = "10"
+    style="width: 5em"
+    id="parterre_seats"
+    placeholder="Numero di posti per fila..."
+  />
+  posti
+  <br>
+  Dimensioni dei palchi:    
+  <input
+    #box_rows
+    type="number"
+    name=""
+    min="1"
+    max="16"
+    value = "4"
+    style="width: 5em"
+    id="box_rows"
+    placeholder="Numero di palchi..."
+  />
+  file di
+  <input
+    #box_seats
+    type="number"
+    name=""
+    min="1"
+    max="11"
+    value = "6"
+    style="width: 5em"
+    id="box_seats"
+    placeholder="Numero di posti per palco..."
+  />
+  posti
+  <br>
+  <br>
+  <button
+    (click)="resetShow(parterre_rows.valueAsNumber, parterre_seats.valueAsNumber, box_rows.valueAsNumber, box_seats.valueAsNumber)"
+  >
+    Imposta dimensioni
+  </button>
+  <br>
+  <br>
+  N.B. Reimpostando le dimensioni del teatro le precedenti dimensioni associate al teatro ed eventuali prenotazioni verranno cancellate

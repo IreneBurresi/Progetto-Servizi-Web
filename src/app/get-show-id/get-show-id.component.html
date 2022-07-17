@@ -1,0 +1,29 @@
+<section *ngIf="getSelectedShowId() == undefined">
+  <label for="get_show_id"> Codice spettacolo: </label>
+  <input
+    #get_show_id
+    type="text"
+    id="get_show_id"
+    minlength="8"
+    maxlength="8"
+    placeholder="########"
+    size="9"
+    autofocus
+    required
+    (keyup.enter)="setSelectedShowId(get_show_id.value)"
+  />
+  <button
+    class="button"
+    role="button"
+    (click)="setSelectedShowId(get_show_id.value)"
+  >
+    Seleziona
+  </button>
+</section>
+
+<section *ngIf="getSelectedShowId() != undefined">
+  Spettacolo selezionato: {{ getSelectedShowId() }}
+  <button class="button-16" role="button" (click)="resetShowId()">
+    Cambia spettacolo
+  </button>
+</section>

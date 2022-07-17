@@ -1,0 +1,13 @@
+
+  <i *ngIf = "getShowId() == undefined">
+  
+  <button 
+    (click)="getNewKeyFromDatabase()"
+  >
+    Nuovo spettacolo
+  </button>
+</i>
+
+  <section *ngIf = "getShowId() != undefined">
+    Spettacolo selezionato: {{getShowId()}} 
+  </section>

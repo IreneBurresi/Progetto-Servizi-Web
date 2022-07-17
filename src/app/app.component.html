@@ -1,0 +1,8 @@
+<h1> Prenotazioni teatro </h1>
+<section *ngIf = "getAdmin() == false">
+  <app-user-area (userAccessed) = "setUserAccessed($any($event))"></app-user-area>
+</section>
+
+<section>
+  <app-admin-area (adminAccessed) = "setAdminAccessed()"></app-admin-area>
+</section>

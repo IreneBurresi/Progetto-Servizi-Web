@@ -1,0 +1,58 @@
+<h2>Area amministratori</h2>
+<section *ngIf="getAdminAccessed() == false">
+  <fieldset>
+    <legend>Accesso come amministratore</legend>
+    <app-admin-access
+      (correctAccess)="correctlyAccessed($event)"
+    ></app-admin-access>
+  </fieldset>
+</section>
+
+<section *ngIf="getAdminAccessed() == true">
+  <fieldset>
+    <legend>Selezione spettacolo</legend>
+    <section *ngIf="getShowId() == undefined">
+      Seleziona uno spettacolo esistente:
+      <br />
+      <br />
+      <app-get-show-id
+        (newShow)="setShow($event)"
+        (newShowId)="setShowId($event)"
+      >
+      </app-get-show-id>
+      <br />
+      oppure crea un nuovo spettacolo:
+      <app-new-show-id (newShowId)="setShowId($event)"></app-new-show-id>
+    </section>
+    <section *ngIf="getShowId() != undefined">
+      Lo spettacolo selezionato è {{ getShowId() }}
+      <button class="button-16" role="button" (click)="resetShowId()">
+        Cambia spettacolo
+      </button>
+    </section>
+  </fieldset>
+  <br />
+  <fieldset *ngIf="getShowId() != undefined">
+    <legend>Impostazione dimensioni del teatro</legend>
+    <app-new-show
+      [show_id]="getShowId()"
+      (newDimensions)="newDimensions($event)"
+    ></app-new-show>
+  </fieldset>
+  <br />
+  <fieldset *ngIf="getShowId() != undefined">
+    <legend>Biglietteria</legend>
+
+    <app-get-booker-name (newBookerName)="setBookerName($event)">
+    </app-get-booker-name>
+    Seleziona il posto da prenotare:
+    <br />
+    <app-display-show-bookings
+      [show_bookings]="getShowBookings()"
+      (newSelectedSeat)="setSelectedSeat($event)"
+    >
+    </app-display-show-bookings>
+    <section id= "output">
+    </section>
+  </fieldset>
+</section>

@@ -1,0 +1,21 @@
+<section *ngIf="getBookerName() == undefined">
+  <label for="get_booker_name"> Nominativo: </label>
+  <input
+    #get_booker_name
+    type="text"
+    id="get_booker_name"
+    minlength="3"
+    maxlength="15"
+    placeholder="Luigi"
+    size="9"
+    autofocus
+    required
+    (keyup.enter)="setBookerName(get_booker_name.value)"
+  />
+  <button (click)="setBookerName(get_booker_name.value)">Seleziona</button>
+</section>
+
+<section *ngIf="getBookerName() != undefined">
+  Nominativo per la prenotazione: {{ getBookerName() }}
+  <button (click)="resetBookerName()">Cambia nominativo</button>
+</section>

@@ -1,0 +1,19 @@
+
+  <label for="get_booker_name"> Password: </label>
+  <input
+    #get_password
+    type="password"
+    id="get_password"
+    minlength="1"
+    maxlength="15"
+    size="9"
+    autofocus
+    required
+    (keyup.enter)="setPassword(get_password.value)"
+  />
+  <button 
+    (click)="setPassword(get_password.value)"
+  >
+    Accedi
+  </button>
+

@@ -1,0 +1,34 @@
+<div>Platea</div>
+<div
+  *ngFor="let row of getShowBookings().getParterreBookings(); let row_n = index"
+  class="div-seats"
+>
+  <button
+    *ngFor="let seat of row; let seat_n = index"
+    class="button-seat"
+    id="row_n"
+    [disabled]="seat !== 'x'"
+    style="height:25px;width:40px"
+    value="seat"
+    (click)="selectSeat(row_n, seat_n, 'parterre')"
+  >
+    {{ printSeatNumber(row_n, seat_n) }}
+  </button>
+</div>
+<br />
+<div>Palchi</div>
+<div
+  *ngFor="let row of getShowBookings().getBoxesBookings(); let row_n = index"
+  class="div-seats"
+>
+  <button
+    *ngFor="let seat of row; let seat_n = index"
+    class="button-seat"
+    [disabled]="seat !== 'x'"
+    style="height:25px;width:40px"
+    value="seat"
+    (click)="selectSeat(row_n, seat_n, 'boxes')"
+  >
+    {{ printSeatNumber(row_n, seat_n) }}
+  </button>
+</div>
